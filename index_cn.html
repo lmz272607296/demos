@@ -187,6 +187,31 @@
         </div>
       </div>
     </section>
+
+    <section class="section other-work-section">
+      <div class="container is-max-desktop">
+        <div class="other-work-layout">
+          <div class="other-work-copy">
+            <p class="section-kicker">OTHER WORK</p>
+            <h2 class="title is-2">其它成果</h2>
+            <h3 class="title is-4">脑电控制机械臂抓取</h3>
+            <p class="other-work-intro">我们将机械臂的高层控制接口迁移到基于脑电信号的脑机交互系统。系统通过不同闪烁频率的屏幕目标提供稳态视觉诱发刺激，由脑电帽采集并放大响应信号，再通过模式识别完成指令分类。</p>
+            <div class="bci-flow" aria-label="脑电控制流程">
+              <div><span>01</span><p><strong>视觉刺激</strong>不同屏幕闪烁频率诱发可区分的脑电响应。</p></div>
+              <div><span>02</span><p><strong>信号识别</strong>脑电帽完成采集与放大，识别模型将信号划分为 10 个类别。</p></div>
+              <div><span>03</span><p><strong>控制映射</strong>10 类脑电模式分别对应机械臂的 10 种控制逻辑，用于组合完成操作任务。</p></div>
+            </div>
+          </div>
+          <figure class="other-work-video">
+            <video class="demo-video" controls muted loop playsinline preload="metadata">
+              <source src="static/videos/脑电.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+            <figcaption>Demo：通过脑电分类指令控制机械臂完成抓取。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">

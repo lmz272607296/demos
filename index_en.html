@@ -187,6 +187,31 @@
         </div>
       </div>
     </section>
+
+    <section class="section other-work-section">
+      <div class="container is-max-desktop">
+        <div class="other-work-layout">
+          <div class="other-work-copy">
+            <p class="section-kicker">OTHER WORK</p>
+            <h2 class="title is-2">Other Work</h2>
+            <h3 class="title is-4">EEG-controlled Robotic-arm Grasping</h3>
+            <p class="other-work-intro">We transferred the robotic arm's high-level control interface to an EEG-based brain-computer interaction system. Screen targets flickering at different frequencies provide steady-state visual stimulation. An EEG cap acquires and amplifies the evoked responses before pattern recognition converts them into control commands.</p>
+            <div class="bci-flow" aria-label="EEG control pipeline">
+              <div><span>01</span><p><strong>Visual stimulation</strong>Distinct flicker frequencies evoke separable EEG responses.</p></div>
+              <div><span>02</span><p><strong>Signal recognition</strong>The EEG cap acquires and amplifies the signals, which are classified into 10 categories.</p></div>
+              <div><span>03</span><p><strong>Control mapping</strong>The 10 EEG classes map to 10 robotic-arm control actions that can be composed into manipulation tasks.</p></div>
+            </div>
+          </div>
+          <figure class="other-work-video">
+            <video class="demo-video" controls muted loop playsinline preload="metadata">
+              <source src="static/videos/脑电.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <figcaption>Demo: using classified EEG commands to control the robotic arm during grasping.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">

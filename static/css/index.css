@@ -824,6 +824,85 @@ code {
   border-top: 2px solid var(--text-primary);
 }
 
+.other-work-section {
+  border-top: 1px solid var(--border-color);
+}
+
+.other-work-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.other-work-copy {
+  min-width: 0;
+}
+
+.other-work-copy .title.is-2 {
+  margin-bottom: 1.5rem !important;
+}
+
+.other-work-copy .title.is-4 {
+  margin-bottom: 1rem !important;
+}
+
+.other-work-intro {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.bci-flow {
+  border-top: 1px solid var(--border-color);
+}
+
+.bci-flow div {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bci-flow span {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.bci-flow p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.bci-flow strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+
+.other-work-video {
+  min-width: 0;
+}
+
+.other-work-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #111827;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+}
+
+.other-work-video figcaption {
+  margin-top: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 
 /* Mobile Responsive Improvements */
 @media screen and (max-width: 768px) {
@@ -889,8 +968,13 @@ code {
   .demo-grid,
   .milestone-facts,
   .process-grid,
-  .future-grid {
+  .future-grid,
+  .other-work-layout {
     grid-template-columns: 1fr;
+  }
+
+  .other-work-layout {
+    gap: 2rem;
   }
 
   .stage-heading {
@@ -1002,5 +1086,4 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
 
