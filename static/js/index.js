@@ -90,33 +90,26 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Video carousel autoplay when in view
-function setupVideoCarouselAutoplay() {
-    const carouselVideos = document.querySelectorAll('.results-carousel video');
-    
-    if (carouselVideos.length === 0) return;
-    
+// Play project demos only while they are visible.
+function setupDemoVideoPlayback() {
+    const videos = document.querySelectorAll('.demo-video');
+
+    if (videos.length === 0 || !('IntersectionObserver' in window)) return;
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
             const video = entry.target;
             if (entry.isIntersecting) {
-                // Video is in view, play it
-                video.play().catch(e => {
-                    // Autoplay failed, probably due to browser policy
-                    console.log('Autoplay prevented:', e);
+                video.play().catch(() => {
+                    // Native controls remain available when autoplay is blocked.
                 });
             } else {
-                // Video is out of view, pause it
                 video.pause();
             }
         });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the video is visible
-    });
-    
-    carouselVideos.forEach(video => {
-        observer.observe(video);
-    });
+    }, { threshold: 0.5 });
+
+    videos.forEach((video) => observer.observe(video));
 }
 
 $(document).ready(function() {
@@ -136,7 +129,6 @@ $(document).ready(function() {
 	
     bulmaSlider.attach();
     
-    // Setup video autoplay for carousel
-    setupVideoCarouselAutoplay();
+    setupDemoVideoPlayback();
 
 })

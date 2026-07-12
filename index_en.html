@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dexterous chopstick manipulation: real-world data collection, ACT imitation learning, RL simulation data generation, and VLA.">
+  <title>Dexterous Chopstick Manipulation | Mengzhuo Li & Zeyu Yang</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+  <nav class="language-nav" aria-label="Language switcher">
+    <div class="container is-max-desktop has-text-right">
+      <a class="language-switch" href="index_cn.html" lang="zh-CN">中文</a>
+      <span class="language-current" aria-current="page">English</span>
+    </div>
+  </nav>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero project-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <p class="section-kicker">DEXTEROUS MANIPULATION</p>
+          <h1 class="title is-1 publication-title">Dexterous Chopstick Manipulation:<br>From Action Priors to a VLA Data Engine</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Mengzhuo Li<sup>*</sup>,</span>
+            <span class="author-block">Zeyu Yang<sup>*</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Nanjing University</span>
+          </div>
+          <div class="publication-links">
+            <a href="https://github.com/lmz272607296/VLA" target="_blank" rel="noopener" class="external-link button is-normal is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span><span>ROS2</span>
+            </a>
+            <a href="https://github.com/lmz272607296/vlalab" target="_blank" rel="noopener" class="external-link button is-normal is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span><span>IsaacLab</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body has-text-centered">
+          <img class="overview-image" src="static/images/wonderful.jpg" alt="Dexterous hand and robotic arm hardware overview">
+          <h2 class="subtitle mt-4">Hardware overview: a 16-DoF dexterous hand integrated with the new robotic arm</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>Building on the open-source LeapHand platform, we integrated a modified dexterous hand, robotic-arm coupling, ROS2 control, and visual perception. The new arm platform now supports in-hand rotation, gesture following, and vision-guided grasping of bottles and fruit, providing a stable hardware and software foundation.</p>
+              <p>We have completed real-world multimodal data collection, 27-DoF human-hand to 21-DoF robot retargeting, and ACT imitation-learning training, resulting in a stable chopstick-operation demo. Our current focus is RL simulation data generation: coupling the ACT action prior with closed-loop correction, privileged observations, and domain randomization to produce high-quality trajectories for later Pi0/VLA fine-tuning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">SYSTEM FOUNDATION</p>
+        <h2 class="title is-2 has-text-centered">System Foundation and Capability Validation</h2>
+        <p class="section-intro has-text-centered">Four real-world tasks validate perception, retargeting, hardware control, and continuous manipulation on the new platform.</p>
+        <figure class="architecture-figure has-text-centered">
+          <img src="static/images/rll.png" alt="Architecture integrating visual perception, ROS2 hardware control, and reinforcement learning">
+          <figcaption><strong>Project foundation:</strong> visual perception, ROS2 hardware control, and reinforcement-learning environments.</figcaption>
+        </figure>
+
+        <div class="demo-grid">
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/carousel1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <h3 class="title is-5">In-hand Rotation</h3>
+            <p>Validates coordinated multi-joint control and continuous pose adjustment.</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/follow_final.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <h3 class="title is-5">High-precision Gesture Following</h3>
+            <p>Validates real-time keypoint retargeting and accurate fingertip alignment.</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/瓶子抓取.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <h3 class="title is-5">Vision-guided Bottle Grasping</h3>
+            <p>Demonstrates target localization, approach, and stable grasping on the new arm.</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video demo-video-portrait" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/水果抓取.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <h3 class="title is-5">Vision-guided Fruit Grasping</h3>
+            <p>Validates visual grasping across different object appearances and scales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section milestone-section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">LATEST MILESTONE</p>
+        <h2 class="title is-2 has-text-centered">Latest Milestone: ACT Chopstick Manipulation</h2>
+        <p class="milestone-lead has-text-centered">Real-world multimodal collection, 27-DoF to 21-DoF retargeting, and ACT policy training are complete, producing a stable and reproducible chopstick-manipulation imitation-learning demo.</p>
+        <div class="act-demo">
+          <video class="demo-video" controls muted loop playsinline preload="metadata">
+            <source src="static/videos/ACT筷子.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="milestone-facts">
+          <div><strong>Real-world data</strong><span>50+ high-quality expert trajectories with multimodal state records</span></div>
+          <div><strong>Retargeting</strong><span>Precise mapping from a 27-DoF human hand to the 21-DoF robot system</span></div>
+          <div><strong>ACT policy</strong><span>Action chunking reduces error accumulation during long-horizon execution</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rl-stage-section">
+      <div class="container is-max-desktop">
+        <div class="stage-heading">
+          <div>
+            <p class="section-kicker">CURRENT STAGE</p>
+            <h2 class="title is-2">RL Simulation Data Generation</h2>
+          </div>
+          <div class="stage-statuses" aria-label="Current status">
+            <span class="status-badge status-complete">Rollout / Update Connected</span>
+            <span class="status-badge status-active">Large-scale Training Active</span>
+          </div>
+        </div>
+        <p class="stage-intro">The current objective is to integrate the real-world ACT prior with simulation RL, using closed-loop correction and physics randomization to generate successful trajectories for downstream VLA training.</p>
+        <div class="process-grid">
+          <article class="process-step"><span class="step-index">01</span><h3>Real Initial-state Reconstruction</h3><p>Reconstruct the real hand-chopstick configuration in Isaac Gym / Isaac Lab and store normalized poses and scene parameters as JSON.</p></article>
+          <article class="process-step"><span class="step-index">02</span><h3>ACT Action Prior</h3><p>Promote the trained ACT policy from an auxiliary reward to an ACT prior that directly participates in rollout and warm-starts exploration.</p></article>
+          <article class="process-step"><span class="step-index">03</span><h3>Prior-residual Fusion</h3><p>Use Support-Aware QC-FQL + ACT prior + residual RL: RL directly controls the arm, while hand actions combine the weighted prior and RL residual.</p></article>
+          <article class="process-step"><span class="step-index">04</span><h3>Privileged Observations and Staged Rewards</h3><p>Use joint, object, and geometric state with interpretable approach, grasp, lift, and move rewards to learn the complete task.</p></article>
+          <article class="process-step"><span class="step-index">05</span><h3>Physics Tuning and Domain Randomization</h3><p>Randomize mass, friction, contact parameters, and initial states to improve robustness to real-world physics differences.</p></article>
+          <article class="process-step"><span class="step-index">06</span><h3>Successful Trajectory Generation</h3><p>After convergence, generate successful trajectories at scale as a data engine for Robot Transformer and VLA fine-tuning.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light future-section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">LONG-TERM ROUTE</p>
+        <h2 class="title is-2 has-text-centered">From an RL Data Engine to General-purpose VLA</h2>
+        <p class="section-intro has-text-centered">The RL expert expands reliable trajectories, Pi0/VLA supplies semantic reasoning and cross-task generalization, and tactile residual control closes the fast real-world feedback loop.</p>
+        <figure class="pipeline-figure has-text-centered">
+          <img src="static/images/vla_pipeline.png" alt="Long-term architecture from real-world teleoperation and ACT to RL simulation, VLA, and tactile control">
+          <figcaption><strong>Long-term brain-cerebellum architecture:</strong> data collection and ACT are validated, RL data generation is active, and VLA fine-tuning plus tactile control follow.</figcaption>
+        </figure>
+        <div class="future-grid">
+          <div><span>01</span><h3>RL Expert Data Engine</h3><p>Generate high-quality successful trajectories under broad simulation randomization.</p></div>
+          <div><span>02</span><h3>Pi0/VLA Fine-tuning</h3><p>Learn long-horizon semantic planning, visual grounding, and cross-scene task composition.</p></div>
+          <div><span>03</span><h3>Tactile Residual Loop</h3><p>Use high-frequency tactile feedback to handle slip, disturbance, and material variation.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>© 2026 Dexterous Chopstick Manipulation · Nanjing University</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

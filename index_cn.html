@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="灵巧手筷子操作项目：从真机数据采集、ACT 模仿学习到强化学习仿真数据生成与 VLA。">
+  <title>灵巧手筷子操作项目 | 李孟卓 & 杨泽宇</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+  <nav class="language-nav" aria-label="语言切换">
+    <div class="container is-max-desktop has-text-right">
+      <span class="language-current" aria-current="page">中文</span>
+      <a class="language-switch" href="index_en.html" lang="en">English</a>
+    </div>
+  </nav>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="返回顶部" aria-label="返回顶部">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero project-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <p class="section-kicker">DEXTEROUS MANIPULATION</p>
+          <h1 class="title is-1 publication-title">灵巧手筷子操作：<br>从动作先验到 VLA 数据引擎</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">李孟卓<sup>*</sup>,</span>
+            <span class="author-block">杨泽宇<sup>*</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">南京大学</span>
+          </div>
+          <div class="publication-links">
+            <a href="https://github.com/lmz272607296/VLA" target="_blank" rel="noopener" class="external-link button is-normal is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span><span>ROS2</span>
+            </a>
+            <a href="https://github.com/lmz272607296/vlalab" target="_blank" rel="noopener" class="external-link button is-normal is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span><span>IsaacLab</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body has-text-centered">
+          <img class="overview-image" src="static/images/wonderful.jpg" alt="灵巧手与机械臂联合系统硬件总览">
+          <h2 class="subtitle mt-4">硬件总览：16 自由度灵巧手与新机械臂联合系统</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">项目摘要</h2>
+            <div class="content has-text-justified">
+              <p>依托 LeapHand 开源机械手，我们完成了灵巧手结构改造、机械臂连接、ROS2 控制与视觉感知系统集成，并在新机械臂平台上实现手内旋转、手势跟随以及瓶子和水果的视觉抓取，建立了稳定的软硬件实验基座。</p>
+              <p>项目现已完成真机多模态数据采集、27 自由度人手到 21 自由度机器人动作重定向和 ACT 模仿学习训练，形成稳定的筷子操作 demo。当前工作聚焦于将 ACT 动作先验接入强化学习仿真，通过闭环纠错、特权观测与域随机化生成高质量成功轨迹，为后续 π0/VLA 微调提供持续的数据引擎。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">SYSTEM FOUNDATION</p>
+        <h2 class="title is-2 has-text-centered">系统基座与能力验证</h2>
+        <p class="section-intro has-text-centered">从感知、重定向到硬件控制，四项真机任务验证了新平台的稳定性与连续操作能力。</p>
+        <figure class="architecture-figure has-text-centered">
+          <img src="static/images/rll.png" alt="视觉感知、ROS2 硬件控制与强化学习环境架构图">
+          <figcaption><strong>项目基座：</strong>视觉感知、ROS2 硬件控制与强化学习环境的深度集成。</figcaption>
+        </figure>
+
+        <div class="demo-grid">
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/carousel1.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <h3 class="title is-5">手内旋转</h3>
+            <p>验证多关节协调控制与连续姿态调整能力。</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/follow_final.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <h3 class="title is-5">高精度手势跟随</h3>
+            <p>验证人手关键点驱动的实时动作重定向与指端对齐。</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/瓶子抓取.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <h3 class="title is-5">视觉引导的瓶子抓取</h3>
+            <p>展示新机械臂平台上的目标定位、接近与稳定抓取。</p>
+          </article>
+          <article class="demo-item">
+            <div class="demo-media">
+              <video class="demo-video demo-video-portrait" controls muted loop playsinline preload="metadata">
+                <source src="static/videos/水果抓取.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <h3 class="title is-5">视觉引导的水果抓取</h3>
+            <p>验证面对不同物体外观与尺度时的视觉抓取能力。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section milestone-section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">LATEST MILESTONE</p>
+        <h2 class="title is-2 has-text-centered">最新里程碑：ACT 筷子操作</h2>
+        <p class="milestone-lead has-text-centered">已完成真机多模态数据采集、27 自由度人手到 21 自由度机器人的动作重定向与 ACT 策略训练，形成可稳定复现筷子操作的模仿学习 demo。</p>
+        <div class="act-demo">
+          <video class="demo-video" controls muted loop playsinline preload="metadata">
+            <source src="static/videos/ACT筷子.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+          </video>
+        </div>
+        <div class="milestone-facts">
+          <div><strong>真机数据</strong><span>50+ 条高质量专家轨迹与多模态状态记录</span></div>
+          <div><strong>动作重定向</strong><span>27 DoF 人手动作精确映射到 21 DoF 机器人系统</span></div>
+          <div><strong>ACT 策略</strong><span>动作分块建模，降低长序列执行中的误差累积</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rl-stage-section">
+      <div class="container is-max-desktop">
+        <div class="stage-heading">
+          <div>
+            <p class="section-kicker">CURRENT STAGE</p>
+            <h2 class="title is-2">强化学习仿真数据生成</h2>
+          </div>
+          <div class="stage-statuses" aria-label="当前状态">
+            <span class="status-badge status-complete">Rollout / Update 已打通</span>
+            <span class="status-badge status-active">大规模训练进行中</span>
+          </div>
+        </div>
+        <p class="stage-intro">当前重点是将真机 ACT 动作先验接入仿真强化学习，通过闭环纠错和物理随机化生成可用于后续 VLA 训练的高质量成功轨迹。</p>
+        <div class="process-grid">
+          <article class="process-step"><span class="step-index">01</span><h3>真实初始位姿还原</h3><p>在 Isaac Gym / Isaac Lab 中恢复灵巧手与筷子的真实初始关系，并将位姿及场景参数规范化记录为 JSON。</p></article>
+          <article class="process-step"><span class="step-index">02</span><h3>ACT 动作先验</h3><p>将已训练 ACT 策略从辅助奖励升级为直接参与 rollout 的 ACT prior，为探索提供高质量热启动。</p></article>
+          <article class="process-step"><span class="step-index">03</span><h3>先验与残差融合</h3><p>采用 Support-Aware QC-FQL + ACT prior + residual RL：机械臂由 RL 直接控制，灵巧手执行先验动作与 RL 残差的加权叠加。</p></article>
+          <article class="process-step"><span class="step-index">04</span><h3>特权观测与分层奖励</h3><p>利用关节、目标位置及几何关系构建特权观测，并以接近、握持、抬起、移动等阶段信号引导完整任务学习。</p></article>
+          <article class="process-step"><span class="step-index">05</span><h3>物理调参与域随机化</h3><p>围绕质量、摩擦、接触参数与初始状态扩大随机化范围，提高策略面对真实物理差异时的鲁棒性。</p></article>
+          <article class="process-step"><span class="step-index">06</span><h3>成功轨迹批量生成</h3><p>目标是在策略收敛后高频生成成功轨迹，持续构建 Robot Transformer 与 VLA 微调所需的数据引擎。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light future-section">
+      <div class="container is-max-desktop">
+        <p class="section-kicker has-text-centered">LONG-TERM ROUTE</p>
+        <h2 class="title is-2 has-text-centered">从 RL 数据引擎走向通用 VLA</h2>
+        <p class="section-intro has-text-centered">强化学习专家策略负责扩充可靠轨迹，π0/VLA 负责高层语义理解与跨任务泛化，触觉残差控制负责真机执行时的快速闭环修正。</p>
+        <figure class="pipeline-figure has-text-centered">
+          <img src="static/images/vla_pipeline.png" alt="从真机遥操作、ACT、强化学习仿真到 VLA 与触觉小脑的长期架构">
+          <figcaption><strong>长期大脑-小脑架构：</strong>数据采集与 ACT 已验证，RL 数据生成正在推进，VLA 微调与触觉闭环为后续阶段。</figcaption>
+        </figure>
+        <div class="future-grid">
+          <div><span>01</span><h3>RL 专家数据引擎</h3><p>在域随机化仿真中生成大规模高质量成功轨迹。</p></div>
+          <div><span>02</span><h3>π0/VLA 专项微调</h3><p>学习长视野语义规划、视觉定位与跨场景任务组合。</p></div>
+          <div><span>03</span><h3>触觉残差闭环</h3><p>利用高频触觉反馈处理滑移、扰动和材质差异。</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>© 2026 灵巧手筷子操作项目 · 南京大学</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

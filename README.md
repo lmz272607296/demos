@@ -1,80 +1,47 @@
-# Academic Project Page Template
+# Dexterous Chopstick Manipulation
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+Bilingual project page for dexterous-hand chopstick manipulation, covering real-world data collection, ACT imitation learning, RL simulation data generation, and the long-term VLA route.
 
-A clean, responsive template for academic project pages.
+## Local Preview
 
+Run from this directory:
 
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+```bash
+python3 -m http.server 8000
+```
 
+Open `http://localhost:8000/`. The root page defaults to Chinese; the language switch opens the English version.
 
+## Publish With The Existing GitHub Repository
 
-## Start using the template
-To start using the template click on `Use this Template`.
+This checkout is already connected to `https://github.com/Aurora-0419/Dexterous-Hand-Project.git` on branch `master`. If `Aurora-0419` is your GitHub account, run:
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+```bash
+git add README.md index.html index_cn.html index_en.html \
+  static/css/index.css static/js/index.js \
+  static/images/favicon.ico static/images/wonderful.jpg \
+  static/images/rll.png static/images/vla_pipeline.png \
+  static/videos/carousel1.mp4 static/videos/follow_final.mp4 \
+  "static/videos/瓶子抓取.mp4" "static/videos/水果抓取.mp4" \
+  "static/videos/ACT筷子.mp4"
+git commit -m "feat: publish dexterous hand project page"
+git push origin master
+```
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+Then:
 
-## What's New
+1. Open `https://github.com/Aurora-0419/Dexterous-Hand-Project/settings/pages` while signed in.
+2. Under `Build and deployment`, select `Deploy from a branch`.
+3. Select branch `master`, folder `/(root)`, then click `Save`.
+4. After deployment finishes, open `https://aurora-0419.github.io/Dexterous-Hand-Project/`.
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+If `Aurora-0419` is not your account, create an empty public repository under your own account and replace the remote before pushing:
 
-## Components
+```bash
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+git push -u origin master
+```
 
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
+The resulting URL will be `https://USERNAME.github.io/REPOSITORY/` after enabling Pages from `master` and `/(root)`.
 
-## Customization
-
-The HTML file has TODO comments showing what to replace:
-
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
-
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
-
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
-
-## Tips
-
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+GitHub rejects ordinary Git files of 100 MB or more. Keep each video below that limit or move large media to an external host or Git LFS before publishing.
