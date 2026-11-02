@@ -1,47 +1,42 @@
-# Dexterous Chopstick Manipulation
+# Robotics demos · 李孟卓
 
-Bilingual project page for dexterous-hand chopstick manipulation, covering real-world data collection, ACT imitation learning, RL simulation data generation, and the long-term VLA route.
+这个仓库同时发布多份网页，使用 **URL 子目录**区分用途。GitHub Pages 从 `master` 分支的根目录发布；更新某个目录后，对应网页会自动部署。
 
-## Local Preview
+| 网页 | 访问链接 | 入口文件 |
+| --- | --- | --- |
+| 访问学生申请 · 真机经验展示 | **https://lmz272607296.github.io/demos/email/** | `email/index.html` |
+| 筷子操作项目 · 中文 | https://lmz272607296.github.io/demos/ | `index.html` → `index_cn.html` |
+| 筷子操作项目 · English | https://lmz272607296.github.io/demos/index_en.html | `index_en.html` |
 
-Run from this directory:
+仓库：https://github.com/lmz272607296/demos
 
-```bash
-python3 -m http.server 8000
-```
+## 本地预览
 
-Open `http://localhost:8000/`. The root page defaults to Chinese; the language switch opens the English version.
-
-## Publish With The Existing GitHub Repository
-
-This checkout is already connected to `https://github.com/Aurora-0419/Dexterous-Hand-Project.git` on branch `master`. If `Aurora-0419` is your GitHub account, run:
+在仓库根目录运行：
 
 ```bash
-git add README.md index.html index_cn.html index_en.html \
-  static/css/index.css static/js/index.js \
-  static/images/favicon.ico static/images/wonderful.jpg \
-  static/images/rll.png static/images/vla_pipeline.png \
-  static/videos/carousel1.mp4 static/videos/follow_final.mp4 \
-  "static/videos/瓶子抓取.mp4" "static/videos/水果抓取.mp4" \
-  "static/videos/ACT筷子.mp4"
-git commit -m "feat: publish dexterous hand project page"
-git push origin master
+python -m http.server 8000
 ```
 
-Then:
+打开 http://localhost:8000/email/ 查看申请展示页，或 http://localhost:8000/ 查看筷子项目页。
 
-1. Open `https://github.com/Aurora-0419/Dexterous-Hand-Project/settings/pages` while signed in.
-2. Under `Build and deployment`, select `Deploy from a branch`.
-3. Select branch `master`, folder `/(root)`, then click `Save`.
-4. After deployment finishes, open `https://aurora-0419.github.io/Dexterous-Hand-Project/`.
+## 更新发布
 
-If `Aurora-0419` is not your account, create an empty public repository under your own account and replace the remote before pushing:
+先用 `git status` 检查改动，只暂存需要发布的文件，然后提交并推送到 `origin master`。GitHub Pages 的发布进度可在仓库 Actions 中查看。
 
-```bash
-git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
-git push -u origin master
-```
+Pages 设置：https://github.com/lmz272607296/demos/settings/pages
 
-The resulting URL will be `https://USERNAME.github.io/REPOSITORY/` after enabling Pages from `master` and `/(root)`.
+发布来源：`Deploy from a branch` → `master` → `/(root)`。
 
-GitHub rejects ordinary Git files of 100 MB or more. Keep each video below that limit or move large media to an external host or Git LFS before publishing.
+## 申请页的视频加载
+
+- 完整演示使用 H.264 / MP4、30 fps，兼容常见桌面和手机浏览器；静音演示不携带音轨。
+- `faststart` 将播放索引放在文件开头，支持边下载边播放；重新编码的视频关键帧间隔最长约 2 秒。脑电视频复用已有的精简版，避免二次有损压缩。
+- 视频先展示 WebP 封面，接近视野时预读元数据，进入视野后静音播放；离开视野或切换标签页时暂停。
+- 用户手动暂停后保持暂停。系统减少动态效果或浏览器省流量设置开启时，由用户点击播放。
+- 不启用 JavaScript 时，仍可使用浏览器原生播放控件。
+- 申请页发布资源位于 `email/assets/video/web/`、`email/assets/img/web/`，简历位于 `email/assets/resume.pdf`。
+
+`email/optimize_media.py` 记录了完整视频的源文件映射和转码参数，需要本地安装 `imageio-ffmpeg` 后运行。双臂原始素材位于本地 `program/static/videos/piper_arm.mp4`，脑电精简版位于本地 `email/assets/video/eeg-control.mp4`，需要保留这些文件才能重新生成发布资源。使用 `--force` 可重新生成已有视频。
+
+媒体直接由 GitHub Pages 提供，视频使用普通 Git 文件。Git LFS 不适合作为 GitHub Pages 的视频发布方式。实际访问速度仍取决于访问者到 GitHub Pages 的网络连接。

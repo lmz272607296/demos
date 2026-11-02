@@ -1,0 +1,6 @@
+# Keep local source/export copies; publish only the assets referenced by the page.
+/assets/video/*.mp4
+/assets/video/web/*.partial.mp4
+/assets/img/*.jpg
+/assets/img/favicon.svg
+/__pycache__/

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="李孟卓的机器人真机 Demo：苹果与瓶子视觉抓取、LEAP Hand 方块旋转、手臂遥操作、脑电交互与 ACT 筷子夹取。">
+  <title>灵巧手操作与机器人交互 · 李孟卓</title>
+  <link rel="icon" href="assets/demo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/showcase.css">
+  <script src="assets/showcase.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳转到项目展示</a>
+
+  <header class="site-header">
+    <nav class="container site-nav" aria-label="项目导航">
+      <a class="brand" href="#top" aria-label="机器人项目展示首页">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="m16 3 11 6.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="m5 9.5 11 6.6 11-6.6M16 16v13M16 3v13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>ROBOTICS <span class="brand-light">/ DEMOS</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#leap-hand"><span>01</span> 灵巧手</a>
+        <a href="#teleoperation"><span>02</span> 遥操作</a>
+        <a href="#eeg"><span>03</span> 脑电</a>
+        <a href="#act"><span>04</span> 筷子夹取</a>
+      </div>
+      <a class="resume-link" href="assets/resume.pdf" target="_blank" rel="noopener" aria-label="查看个人简历 PDF（新窗口）">
+        个人简历 <span class="file-type">PDF</span><span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero container" id="top" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">SELECTED ROBOTICS DEMOS</p>
+        <h1 id="page-title">灵巧手操作<span>与机器人交互</span></h1>
+        <p class="hero-description">从 LEAP Hand 抓取与旋转，到手臂遥操作、脑电交互与 ACT 筷子操作。以四组真机演示，呈现硬件集成、实时控制与模仿学习的实践。</p>
+        <a class="demo-link" href="#leap-hand">浏览 Demo <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hardware-figure">
+        <a href="../static/images/wonderful.jpg" target="_blank" rel="noopener" aria-label="查看设备全景原图（新窗口）">
+          <img src="../static/images/wonderful.jpg" alt="16 自由度 LEAP Hand 灵巧手与机械臂联合平台的设备全景" width="1408" height="1104" fetchpriority="high" decoding="async">
+        </a>
+      </figure>
+    </section>
+
+    <section class="demo-section" id="leap-hand" aria-labelledby="leap-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">01</span>REINFORCEMENT LEARNING</p>
+            <h2 id="leap-title">方块旋转与物体抓取</h2>
+            <p class="section-description">硬件全栈与 ROS 2 控制架构 · 视觉引导抓取与端侧部署 · 强化学习手内旋转复现</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>LEAP Hand</li><li>ROS 2</li><li>强化学习</li>
+          </ul>
+        </header>
+
+        <div class="video-grid grasp-grid">
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <video id="apple-video" controls muted loop playsinline preload="none" poster="assets/img/web/apple-grasp.webp" width="1280" height="720" aria-label="视觉引导的苹果抓取演示" aria-describedby="apple-caption">
+                <source src="assets/video/web/apple-grasp.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/apple-grasp.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="apple-caption">
+              <div class="caption-heading"><h3>视觉引导抓取 · 苹果</h3><span class="duration" aria-label="时长 30 秒">00:30</span></div>
+              <p>以苹果为对象，展示视觉定位、机械臂接近与多指抓取。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/apple-grasp.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <video id="grasp-video" controls muted loop playsinline preload="none" poster="assets/img/web/bottle-grasp.webp" width="1280" height="720" aria-label="视觉引导的瓶子抓取演示" aria-describedby="grasp-caption">
+                <source src="assets/video/web/bottle-grasp.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/bottle-grasp.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="grasp-caption">
+              <div class="caption-heading"><h3>视觉引导抓取 · 瓶子</h3><span class="duration" aria-label="时长 27 秒">00:27</span></div>
+              <p>在同一平台抓取柱状瓶子，对照不同物体外形下的抓取表现。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/bottle-grasp.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+          <figure class="demo-card rotation-card">
+            <div class="video-shell landscape">
+              <video id="rotation-video" controls muted loop playsinline preload="none" poster="assets/img/web/inhand-rotation.webp" width="1280" height="720" aria-label="LEAP Hand 方块手内旋转演示" aria-describedby="rotation-caption">
+                <source src="assets/video/web/inhand-rotation.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/inhand-rotation.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="rotation-caption">
+              <div class="caption-heading"><h3>方块手内旋转</h3><span class="duration" aria-label="时长 52 秒">00:52</span></div>
+              <p>复现 PPO + AMP 策略，结合动力学域随机化完成手内旋转的 Sim-to-Real 验证。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/inhand-rotation.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="teleoperation" aria-labelledby="teleop-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">02</span> TELEOPERATION</p>
+            <h2 id="teleop-title">手、臂实时遥操作</h2>
+            <p class="section-description">异构双臂灵巧手集成与多源遥操基建 · 正逆运动学解算与 ROS 2 多节点同步</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>VR Tracking</li><li>Retargeting</li><li>IK</li>
+          </ul>
+        </header>
+
+        <div class="video-grid teleop-grid">
+          <figure class="demo-card">
+            <div class="video-shell hand-teleop">
+              <video id="hand-video" controls muted loop playsinline preload="none" poster="assets/img/web/gesture-following.webp" width="1080" height="720" aria-label="灵巧手手势跟随与动作重定向演示" aria-describedby="hand-caption">
+                <source src="assets/video/web/gesture-following.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/gesture-following.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="hand-caption">
+              <div class="caption-heading"><h3>灵巧手手势跟随</h3><span class="duration" aria-label="时长 36 秒">00:36</span></div>
+              <p>基于手部关键点实时重定向，同屏展示仿真与真机响应。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/gesture-following.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell arm-teleop">
+              <video id="arm-video" controls muted loop playsinline preload="none" poster="assets/img/web/arm-teleoperation.webp" width="800" height="640" aria-label="双臂 VR 遥操作演示" aria-describedby="arm-caption">
+                <source src="assets/video/web/arm-teleoperation.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/arm-teleoperation.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="arm-caption">
+              <div class="caption-heading"><h3>双臂 VR 遥操作</h3><span class="duration" aria-label="时长 52 秒">00:52</span></div>
+              <p>由 VR 主端提供目标位姿，经 IK 求解驱动双臂执行。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/arm-teleoperation.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="eeg" aria-labelledby="eeg-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">03</span> BRAIN-COMPUTER INTERFACE</p>
+            <h2 id="eeg-title">脑电交互与跨模态控制</h2>
+            <p class="section-description">真机数据采集与跨模态控制 · SSVEP 脑电控制与异步融合架构</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>SSVEP</li><li>异步融合</li><li>机械臂控制</li>
+          </ul>
+        </header>
+
+        <div class="eeg-layout">
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <video id="eeg-video" controls muted loop playsinline preload="none" poster="assets/img/web/eeg-control.webp" width="854" height="480" aria-label="脑电指令控制机械臂抓取演示" aria-describedby="eeg-caption">
+                <source src="assets/video/web/eeg-control.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/eeg-control.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="eeg-caption">
+              <div class="caption-heading"><h3>脑电指令控制机械臂</h3><span class="duration" aria-label="时长 1 分 7 秒">01:07</span></div>
+              <p>识别脑电模式并映射为控制指令，驱动机械臂完成目标抓取。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/eeg-control.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+
+          <div class="eeg-copy">
+
+            <h3>从脑电指令到关节执行</h3>
+            <ol class="implementation-steps">
+              <li>
+                <span class="step-number" aria-hidden="true">01</span>
+                <div><h4>高保真真机示教基建</h4><p>为模仿学习构建真机数据采集与拖拽示教管线。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">02</span>
+                <div><h4>SSVEP 脑电控制方案</h4><p>解析视觉刺激对应的脑电模式，并映射为机器人控制指令。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">03</span>
+                <div><h4>异步融合与关节执行</h4><p>以异步融合架构协调多源传感器并避免通信阻塞，打通“跨模态指令解析—底层关节执行”真机闭环。</p></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="demo-section demo-section--compact" id="act" aria-labelledby="act-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">04</span> IMITATION LEARNING</p>
+            <h2 id="act-title">ACT 筷子夹取</h2>
+            <p class="section-description">无重定向真机示教与 ACT 落地 · 时序集成与误差抑制</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>ACT / CVAE</li><li>拖拽示教</li><li>时序集成</li>
+          </ul>
+        </header>
+
+        <div class="act-layout">
+          <div class="act-copy">
+
+            <h3>从拖拽示教到筷子操作</h3>
+            <ol class="implementation-steps">
+              <li>
+                <span class="step-number" aria-hidden="true">01</span>
+                <div><h4>无重定向真机示教</h4><p>通过灵巧手拖拽示教直接采集专家轨迹，避免动作重定向引入的接触滑移。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">02</span>
+                <div><h4>ACT 行为克隆</h4><p>以 CVAE 建模示范动作分布，通过动作分块学习筷子开合与夹取。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">03</span>
+                <div><h4>时序集成与误差抑制</h4><p>融合重叠动作预测、平滑连续执行，在 LEAP Hand 真机上完成筷子操作。</p></div>
+              </li>
+            </ol>
+          </div>
+
+          <figure class="demo-card portrait-card">
+            <div class="video-shell portrait">
+              <video id="act-video" controls muted loop playsinline preload="none" poster="assets/img/web/chopsticks.webp" width="406" height="720" aria-label="ACT 筷子夹取真机演示" aria-describedby="act-caption">
+                <source src="assets/video/web/chopsticks.mp4" type="video/mp4">
+                您的浏览器不支持视频播放，请<a href="assets/video/web/chopsticks.mp4">打开视频</a>。
+              </video>
+            </div>
+            <figcaption class="video-caption" id="act-caption">
+              <div class="caption-heading"><h3>筷子夹取 · 真机实录</h3><span class="duration" aria-label="时长 11 秒">00:11</span></div>
+              <p>灵巧手持筷，执行精细开合与夹取。</p>
+              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/chopsticks.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><p>李孟卓 <span aria-hidden="true">/</span> Robotics Demos</p><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div>
+  </footer>
+</body>
+</html>
