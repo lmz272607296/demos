@@ -79,15 +79,16 @@
 
           <figure class="demo-card">
             <div class="video-shell landscape">
+              <!-- Use literal booleans for the mobile player; desktop Bilibili ignores loop. -->
               <iframe
                 id="simulation-video"
-                src="https://player.bilibili.com/player.html?bvid=BV1D74b6qEh3&amp;page=1&amp;autoplay=0&amp;danmaku=0"
+                src="https://player.bilibili.com/player.html?bvid=BV1D74b6qEh3&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true"
                 title="方块手内旋转仿真 · B 站播放器"
                 aria-describedby="simulation-caption"
                 width="960" height="540"
                 loading="lazy"
                 scrolling="no"
-                allow="fullscreen; picture-in-picture"
+                allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen>
               </iframe>
             </div>
