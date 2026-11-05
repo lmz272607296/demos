@@ -7,7 +7,7 @@
   <meta name="description" content="李孟卓的灵巧操作与策略学习 Demo：LEAP Hand 方块旋转仿真与真机对照、视觉抓取、手臂遥操作、脑电交互与 ACT 筷子夹取。">
   <title>灵巧操作与策略学习 · 真机演示 · 李孟卓</title>
   <link rel="icon" href="assets/demo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/showcase.css?v=20261105-bilibili">
+  <link rel="stylesheet" href="assets/showcase.css?v=20261105-bilibili8">
   <script src="assets/showcase.js" defer></script>
 </head>
 <body>
@@ -65,65 +65,45 @@
         <div class="video-grid grasp-grid">
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <video id="rotation-video" controls muted loop playsinline preload="none" poster="assets/img/web/inhand-rotation.webp?v=20261105" width="960" height="540" aria-label="LEAP Hand 方块手内旋转真机演示" aria-describedby="rotation-caption">
-                <source src="assets/video/web/inhand-rotation.mp4?v=20261105" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/inhand-rotation.mp4?v=20261105">打开视频</a>。
-              </video>
+              <iframe id="rotation-video" src="https://player.bilibili.com/player.html?bvid=BV1N84b68EYZ&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="方块手内旋转 · 真机 · B 站播放器" aria-describedby="rotation-caption" width="960" height="540" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="rotation-caption">
               <div class="caption-heading"><h3>方块手内旋转 · 真机</h3><span class="duration" aria-label="时长约 16 秒">00:16</span></div>
               <p>复现开源旋转任务，适配关节映射与执行接口，展示方块手内旋转。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/inhand-rotation.mp4?v=20261105" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1N84b68EYZ/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
 
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <!-- Use literal booleans for the mobile player; desktop Bilibili ignores loop. -->
-              <iframe
-                id="simulation-video"
-                src="https://player.bilibili.com/player.html?bvid=BV1D74b6qEh3&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true"
-                title="方块手内旋转仿真 · B 站播放器"
-                aria-describedby="simulation-caption"
-                width="960" height="540"
-                loading="lazy"
-                scrolling="no"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen>
-              </iframe>
+              <iframe id="simulation-video" src="https://player.bilibili.com/player.html?bvid=BV19V4b6gEjd&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="方块手内旋转 · 仿真 · B 站播放器" aria-describedby="simulation-caption" width="960" height="540" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="simulation-caption">
               <div class="caption-heading"><h3>方块手内旋转 · 仿真</h3><span class="duration" aria-label="时长约 16 秒">00:16</span></div>
               <p>Isaac Gym + 循环 PPO；仿真配置约 120 Hz 物理步频 / 20 Hz 策略步频。</p>
-              <p class="media-links"><a href="https://www.bilibili.com/video/BV1D74b6qEh3/" target="_blank" rel="noopener">B 站打开 ↗</a> · <a href="assets/video/web/inhand-simulation.mp4" target="_blank" rel="noopener">备用视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV19V4b6gEjd/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
 
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <video id="apple-video" controls muted loop playsinline preload="none" poster="assets/img/web/apple-grasp.webp" width="1280" height="720" aria-label="视觉引导的苹果抓取演示" aria-describedby="apple-caption">
-                <source src="assets/video/web/apple-grasp.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/apple-grasp.mp4">打开视频</a>。
-              </video>
+              <iframe id="apple-video" src="https://player.bilibili.com/player.html?bvid=BV1cZ4t6HEh2&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="视觉引导抓取 · 苹果 · B 站播放器" aria-describedby="apple-caption" width="960" height="540" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="apple-caption">
               <div class="caption-heading"><h3>视觉引导抓取 · 苹果</h3><span class="duration" aria-label="时长 30 秒">00:30</span></div>
               <p>视觉定位后由策略接近，再执行预设抓取动作；历史训练配置为 8,192 并行环境。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/apple-grasp.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1cZ4t6HEh2/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
 
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <video id="grasp-video" controls muted loop playsinline preload="none" poster="assets/img/web/bottle-grasp.webp" width="1280" height="720" aria-label="视觉引导的瓶子抓取演示" aria-describedby="grasp-caption">
-                <source src="assets/video/web/bottle-grasp.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/bottle-grasp.mp4">打开视频</a>。
-              </video>
+              <iframe id="grasp-video" src="https://player.bilibili.com/player.html?bvid=BV1nZ4t6HEif&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="视觉引导抓取 · 瓶子 · B 站播放器" aria-describedby="grasp-caption" width="960" height="540" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="grasp-caption">
               <div class="caption-heading"><h3>视觉引导抓取 · 瓶子</h3><span class="duration" aria-label="时长 27 秒">00:27</span></div>
               <p>RGB-D 定位目标，经 IK 驱动手臂接近，再执行预设手部抓取动作。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/bottle-grasp.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1nZ4t6HEif/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
         </div>
@@ -146,29 +126,23 @@
         <div class="video-grid teleop-grid">
           <figure class="demo-card">
             <div class="video-shell hand-teleop">
-              <video id="hand-video" controls muted loop playsinline preload="none" poster="assets/img/web/gesture-following.webp" width="1080" height="720" aria-label="灵巧手手势跟随与动作重定向演示" aria-describedby="hand-caption">
-                <source src="assets/video/web/gesture-following.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/gesture-following.mp4">打开视频</a>。
-              </video>
+              <iframe id="hand-video" src="https://player.bilibili.com/player.html?bvid=BV1cZ4t6HEjx&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="灵巧手手势跟随 · B 站播放器" aria-describedby="hand-caption" width="1080" height="720" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="hand-caption">
               <div class="caption-heading"><h3>灵巧手手势跟随</h3><span class="duration" aria-label="时长 36 秒">00:36</span></div>
               <p>基于手部关键点实时重定向，同屏展示仿真与真机响应。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/gesture-following.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1cZ4t6HEjx/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
 
           <figure class="demo-card">
             <div class="video-shell arm-teleop">
-              <video id="arm-video" controls muted loop playsinline preload="none" poster="assets/img/web/arm-teleoperation.webp" width="800" height="640" aria-label="双臂 VR 遥操作演示" aria-describedby="arm-caption">
-                <source src="assets/video/web/arm-teleoperation.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/arm-teleoperation.mp4">打开视频</a>。
-              </video>
+              <iframe id="arm-video" src="https://player.bilibili.com/player.html?bvid=BV1cZ4t6HEh5&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="双臂 VR 遥操作 · B 站播放器" aria-describedby="arm-caption" width="800" height="640" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="arm-caption">
               <div class="caption-heading"><h3>双臂 VR 遥操作</h3><span class="duration" aria-label="时长 52 秒">00:52</span></div>
               <p>VR 提供目标位姿，经 IK 求解驱动双臂，结合插值与平滑复位。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/arm-teleoperation.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1cZ4t6HEh5/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
         </div>
@@ -191,15 +165,12 @@
         <div class="eeg-layout">
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <video id="eeg-video" controls muted loop playsinline preload="none" poster="assets/img/web/eeg-control.webp" width="854" height="480" aria-label="脑电指令控制机械臂抓取演示" aria-describedby="eeg-caption">
-                <source src="assets/video/web/eeg-control.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/eeg-control.mp4">打开视频</a>。
-              </video>
+              <iframe id="eeg-video" src="https://player.bilibili.com/player.html?bvid=BV1cZ4t6HEgQ&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="脑电指令控制机械臂抓取 · B 站播放器" aria-describedby="eeg-caption" width="960" height="540" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="eeg-caption">
               <div class="caption-heading"><h3>脑电指令控制机械臂</h3><span class="duration" aria-label="时长 1 分 7 秒">01:07</span></div>
               <p>识别脑电模式并映射为控制指令，驱动机械臂完成目标抓取。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/eeg-control.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1cZ4t6HEgQ/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
 
@@ -259,15 +230,12 @@
 
           <figure class="demo-card portrait-card">
             <div class="video-shell portrait">
-              <video id="act-video" controls muted loop playsinline preload="none" poster="assets/img/web/chopsticks.webp" width="406" height="720" aria-label="ACT 筷子夹取真机演示" aria-describedby="act-caption">
-                <source src="assets/video/web/chopsticks.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/chopsticks.mp4">打开视频</a>。
-              </video>
+              <iframe id="act-video" src="https://player.bilibili.com/player.html?bvid=BV1FZ4t6HEyu&amp;page=1&amp;autoplay=true&amp;muted=true&amp;loop=true&amp;danmaku=false&amp;danmakuClosed=true" title="ACT 筷子夹取 · 真机实录 · B 站播放器" aria-describedby="act-caption" width="406" height="720" loading="lazy" scrolling="no" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <figcaption class="video-caption" id="act-caption">
               <div class="caption-heading"><h3>筷子夹取 · 真机实录</h3><span class="duration" aria-label="时长 11 秒">00:11</span></div>
               <p>灵巧手持筷，执行精细开合与夹取。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/chopsticks.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1FZ4t6HEyu/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
             </figcaption>
           </figure>
         </div>

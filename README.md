@@ -30,13 +30,23 @@ Pages 设置：https://github.com/lmz272607296/demos/settings/pages
 
 ## 申请页的视频加载
 
-- 完整演示使用 H.264 / MP4、30 fps，兼容常见桌面和手机浏览器；静音演示不携带音轨。
-- `faststart` 将播放索引放在文件开头，支持边下载边播放；重新编码的视频关键帧间隔最长约 2 秒。脑电视频复用已有的精简版，避免二次有损压缩。
-- 视频先展示 WebP 封面，接近视野时预读元数据，进入视野后静音播放；离开视野或切换标签页时暂停。
-- 用户手动暂停后保持暂停。系统减少动态效果或浏览器省流量设置开启时，由用户点击播放。
-- 不启用 JavaScript 时，仍可使用浏览器原生播放控件。
-- 申请页发布资源位于 `email/assets/video/web/`、`email/assets/img/web/`，简历位于 `email/assets/resume.pdf`。
+网页和简历由 GitHub Pages 提供，8 个演示均使用 B 站外链播放器。视频按页面从上到下、从左到右的顺序对应如下：
 
-`email/optimize_media.py` 记录了完整视频的源文件映射和转码参数，需要本地安装 `imageio-ffmpeg` 后运行。双臂原始素材位于本地 `program/static/videos/piper_arm.mp4`，脑电精简版位于本地 `email/assets/video/eeg-control.mp4`，需要保留这些文件才能重新生成发布资源。使用 `--force` 可重新生成已有视频。
+| 演示 | B 站 BV 号 |
+| --- | --- |
+| 方块手内旋转 · 真机 | `BV1N84b68EYZ` |
+| 方块手内旋转 · 仿真 | `BV19V4b6gEjd` |
+| 视觉引导抓取 · 苹果 | `BV1cZ4t6HEh2` |
+| 视觉引导抓取 · 瓶子 | `BV1nZ4t6HEif` |
+| 灵巧手手势跟随 | `BV1cZ4t6HEjx` |
+| 双臂 VR 遥操作 | `BV1cZ4t6HEh5` |
+| 脑电指令控制机械臂 | `BV1cZ4t6HEgQ` |
+| 筷子夹取 · 真机实录 | `BV1FZ4t6HEyu` |
 
-媒体直接由 GitHub Pages 提供，视频使用普通 Git 文件。Git LFS 不适合作为 GitHub Pages 的视频发布方式。实际访问速度仍取决于访问者到 GitHub Pages 的网络连接。
+- iframe 使用 HTTPS、响应式尺寸和 `loading="lazy"`，各卡片提供对应的 B 站原视频链接。
+- 参数统一设置为 `autoplay=true&muted=true&loop=true&danmaku=false&danmakuClosed=true`；使用 `true/false` 兼容 B 站移动播放器，并通过 iframe 的 `allow` 开放自动播放、全屏和画中画权限。
+- 已验证桌面与 Android 模式下可静音自动播放，实际行为仍受浏览器策略影响。B 站桌面外链播放器忽略 `loop`，移动播放器支持循环。
+- 视频清晰度、平台提示、控制按钮及片尾行为由 B 站提供；站点的原生 MP4 控制脚本无法控制跨域 iframe 的播放状态。
+- 简历位于 `email/assets/resume.pdf`，更新时同步修改 HTML 中的 `?v=` 版本参数。
+
+历史 MP4 和封面保留在 `email/assets/video/web/`、`email/assets/img/web/`。`email/optimize_media.py` 记录源文件映射和 H.264 / MP4、30 fps、`faststart` 转码参数，需要本地安装 `imageio-ffmpeg` 后运行。使用 `--force` 重新生成，使用 `--posters` 生成封面；这些文件不再由申请页播放器直接加载。
