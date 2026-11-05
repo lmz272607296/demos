@@ -7,7 +7,7 @@
   <meta name="description" content="李孟卓的灵巧操作与策略学习 Demo：LEAP Hand 方块旋转仿真与真机对照、视觉抓取、手臂遥操作、脑电交互与 ACT 筷子夹取。">
   <title>灵巧操作与策略学习 · 真机演示 · 李孟卓</title>
   <link rel="icon" href="assets/demo-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/showcase.css?v=20261105">
+  <link rel="stylesheet" href="assets/showcase.css?v=20261105-bilibili">
   <script src="assets/showcase.js" defer></script>
 </head>
 <body>
@@ -79,15 +79,22 @@
 
           <figure class="demo-card">
             <div class="video-shell landscape">
-              <video id="simulation-video" controls muted loop playsinline preload="none" poster="assets/img/web/inhand-simulation.webp" width="960" height="540" aria-label="Isaac Gym 方块手内旋转仿真演示" aria-describedby="simulation-caption">
-                <source src="assets/video/web/inhand-simulation.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请<a href="assets/video/web/inhand-simulation.mp4">打开视频</a>。
-              </video>
+              <iframe
+                id="simulation-video"
+                src="https://player.bilibili.com/player.html?bvid=BV1D74b6qEh3&amp;page=1&amp;autoplay=0&amp;danmaku=0"
+                title="方块手内旋转仿真 · B 站播放器"
+                aria-describedby="simulation-caption"
+                width="960" height="540"
+                loading="lazy"
+                scrolling="no"
+                allow="fullscreen; picture-in-picture"
+                allowfullscreen>
+              </iframe>
             </div>
             <figcaption class="video-caption" id="simulation-caption">
               <div class="caption-heading"><h3>方块手内旋转 · 仿真</h3><span class="duration" aria-label="时长约 16 秒">00:16</span></div>
               <p>Isaac Gym + 循环 PPO；仿真配置约 120 Hz 物理步频 / 20 Hz 策略步频。</p>
-              <p class="media-error" role="status" hidden>暂时无法播放，<a href="assets/video/web/inhand-simulation.mp4" target="_blank" rel="noopener">单独打开视频 ↗</a></p>
+              <p class="media-links"><a href="https://www.bilibili.com/video/BV1D74b6qEh3/" target="_blank" rel="noopener">B 站打开 ↗</a> · <a href="assets/video/web/inhand-simulation.mp4" target="_blank" rel="noopener">备用视频 ↗</a></p>
             </figcaption>
           </figure>
 

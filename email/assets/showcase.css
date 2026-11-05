@@ -98,6 +98,7 @@ h2 { margin-top: 12px; font-size: clamp(26px, 2.8vw, 32px); font-weight: 700; le
 .demo-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 4px 16px -12px rgba(30, 49, 81, .22); }
 .video-shell { position: relative; overflow: hidden; background: #edf0f4; isolation: isolate; }
 .video-shell video { width: 100%; height: 100%; object-fit: contain; }
+.video-shell iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .landscape { aspect-ratio: 16 / 9; }
 .portrait { aspect-ratio: 4 / 5; background: #101114; }
 .hand-teleop { aspect-ratio: 3 / 2; }
@@ -107,7 +108,8 @@ h2 { margin-top: 12px; font-size: clamp(26px, 2.8vw, 32px); font-weight: 700; le
 .caption-heading h3 { font-size: 17px; font-weight: 600; line-height: 1.6; letter-spacing: -.015em; }
 .duration { flex-shrink: 0; color: var(--muted); font: 11px / 1.5 var(--mono); }
 .video-caption p { margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.8; }
-.media-error a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.media-error a,
+.media-links a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
 .act-layout,
 .eeg-layout { display: grid; align-items: center; gap: 48px; padding: 12px 36px 8px; }
