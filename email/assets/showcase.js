@@ -1,6 +1,20 @@
 (() => {
   "use strict";
 
+  // Match mobile devices, rather than viewport width: a narrow desktop window
+  // must still wait for a click. Bilibili redirects mobile UAs to its loop-capable player.
+  const mobilePlayer = /AppleWebKit.*Mobile/i.test(navigator.userAgent)
+    && !/Domono/i.test(navigator.userAgent);
+  document.querySelectorAll(".video-shell iframe[data-src]").forEach((iframe) => {
+    const url = new URL(iframe.dataset.src);
+    url.searchParams.set("autoplay", String(mobilePlayer));
+    url.searchParams.set("muted", "true");
+    url.searchParams.set("loop", String(mobilePlayer));
+    url.searchParams.set("poster", "true");
+    // Assign src only after selecting the policy, avoiding an initial autoplay request.
+    iframe.src = url.href;
+  });
+
   const videos = [...document.querySelectorAll(".video-shell video")];
   const visibleVideos = new Set();
   const pausedByUser = new WeakSet();

@@ -4,3 +4,4 @@
 /assets/img/*.jpg
 /assets/img/favicon.svg
 /__pycache__/
+/assets/img/gif/*.partial.gif

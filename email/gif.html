@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="李孟卓的灵巧操作与策略学习 Demo：LEAP Hand 方块旋转仿真与真机对照、视觉抓取、手臂遥操作、脑电交互与 ACT 筷子夹取。">
+  <title>GIF 审阅版 · 灵巧操作与策略学习 · 真机演示 · 李孟卓</title>
+  <link rel="icon" href="assets/demo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/showcase.css?v=20261105-media-review">
+  <script src="assets/showcase.js?v=20261105-media-review" defer></script>
+  <script src="assets/gif-preview.js?v=20261105-media-review" defer></script>
+</head>
+<body data-media-mode="gif">
+  <a class="skip-link" href="#main-content">跳转到项目展示</a>
+
+  <header class="site-header">
+    <nav class="container site-nav" aria-label="项目导航">
+      <a class="brand" href="#top" aria-label="机器人项目展示首页">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="m16 3 11 6.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="m5 9.5 11 6.6 11-6.6M16 16v13M16 3v13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>ROBOTICS <span class="brand-light">/ DEMOS</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#leap-hand"><span>01</span> 灵巧手</a>
+        <a href="#teleoperation"><span>02</span> 遥操作</a>
+        <a href="#eeg"><span>03</span> 脑电</a>
+        <a href="#act"><span>04</span> 筷子夹取</a>
+      </div>
+      <a class="resume-link" href="assets/resume.pdf?v=450720c24ff8" target="_blank" rel="noopener" aria-label="查看个人简历 PDF（新窗口）">
+        个人简历 <span class="file-type">PDF</span><span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <aside class="review-banner container" aria-label="GIF 审阅说明">
+      <div><strong>GIF 效果审阅</strong><p>完整时长 · 25 fps · 256 色 · 可见时自动循环；点击画面暂停 / 重播。8 段合计 452.0 MB，首次加载需等待；可通过原 MP4 对照画质和流畅度。</p></div>
+      <a class="resume-link" href="index.html">查看 B 站版本 ↗</a>
+    </aside>
+    <noscript><p class="container">请启用 JavaScript 播放演示，或使用每张卡片下方的原视频链接。</p></noscript>
+    <section class="hero container" id="top" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">SELECTED ROBOTICS DEMOS</p>
+        <h1 id="page-title">灵巧操作与策略学习<span>真机演示</span></h1>
+        <p class="hero-description">围绕 LEAP Hand 与机械臂，展示方块旋转、视觉抓取、遥操作、脑电交互与筷子夹取。从仿真策略到真机执行，从直接示教到动作学习。</p>
+        <a class="demo-link" href="#leap-hand">浏览 Demo <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hardware-figure">
+        <a href="../static/images/wonderful.jpg" target="_blank" rel="noopener" aria-label="查看设备全景原图（新窗口）">
+          <img src="../static/images/wonderful.jpg" alt="16 自由度 LEAP Hand 灵巧手与机械臂联合平台的设备全景" width="1408" height="1104" fetchpriority="high" decoding="async">
+        </a>
+      </figure>
+    </section>
+
+    <section class="demo-section" id="leap-hand" aria-labelledby="leap-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">01</span> DEXTEROUS MANIPULATION</p>
+            <h2 id="leap-title">灵巧手旋转与视觉抓取</h2>
+            <p class="section-description">16 自由度 LEAP Hand · 方块旋转仿真 / 真机对照 · 视觉定位与手臂接近</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>LEAP Hand</li><li>ROS 2</li><li>强化学习</li>
+          </ul>
+        </header>
+
+        <div class="video-grid grasp-grid">
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：方块手内旋转 · 真机" aria-describedby="rotation-caption" aria-pressed="false">
+                <img id="rotation-video" class="demo-gif" src="assets/img/web/inhand-rotation.webp" data-poster="assets/img/web/inhand-rotation.webp" data-gif="assets/img/gif/inhand-rotation.gif" alt="方块手内旋转 · 真机" width="640" height="360" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="rotation-caption">
+              <div class="caption-heading"><h3>方块手内旋转 · 真机</h3><span class="duration" aria-label="时长约 16 秒">00:16</span></div>
+              <p>复现开源旋转任务，适配关节映射与执行接口，展示方块手内旋转。</p>
+              <p class="media-links"><a href="assets/video/web/inhand-rotation.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/inhand-rotation.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1N84b68EYZ/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 360 · 25 fps · 36.95 MB</p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：方块手内旋转 · 仿真" aria-describedby="simulation-caption" aria-pressed="false">
+                <img id="simulation-video" class="demo-gif" src="assets/img/web/inhand-simulation.webp" data-poster="assets/img/web/inhand-simulation.webp" data-gif="assets/img/gif/inhand-simulation.gif" alt="方块手内旋转 · 仿真" width="640" height="360" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="simulation-caption">
+              <div class="caption-heading"><h3>方块手内旋转 · 仿真</h3><span class="duration" aria-label="时长约 16 秒">00:16</span></div>
+              <p>Isaac Gym + 循环 PPO；仿真配置约 120 Hz 物理步频 / 20 Hz 策略步频。</p>
+              <p class="media-links"><a href="assets/video/web/inhand-simulation.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/inhand-simulation.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV19V4b6gEjd/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 360 · 25 fps · 4.64 MB</p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：视觉引导抓取 · 苹果" aria-describedby="apple-caption" aria-pressed="false">
+                <img id="apple-video" class="demo-gif" src="assets/img/web/apple-grasp.webp" data-poster="assets/img/web/apple-grasp.webp" data-gif="assets/img/gif/apple-grasp.gif" alt="视觉引导抓取 · 苹果" width="640" height="360" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="apple-caption">
+              <div class="caption-heading"><h3>视觉引导抓取 · 苹果</h3><span class="duration" aria-label="时长 30 秒">00:30</span></div>
+              <p>视觉定位后由策略接近，再执行预设抓取动作；历史训练配置为 8,192 并行环境。</p>
+              <p class="media-links"><a href="assets/video/web/apple-grasp.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/apple-grasp.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1cZ4t6HEh2/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 360 · 25 fps · 70.84 MB</p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：视觉引导抓取 · 瓶子" aria-describedby="grasp-caption" aria-pressed="false">
+                <img id="grasp-video" class="demo-gif" src="assets/img/web/bottle-grasp.webp" data-poster="assets/img/web/bottle-grasp.webp" data-gif="assets/img/gif/bottle-grasp.gif" alt="视觉引导抓取 · 瓶子" width="640" height="360" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="grasp-caption">
+              <div class="caption-heading"><h3>视觉引导抓取 · 瓶子</h3><span class="duration" aria-label="时长 27 秒">00:27</span></div>
+              <p>RGB-D 定位目标，经 IK 驱动手臂接近，再执行预设手部抓取动作。</p>
+              <p class="media-links"><a href="assets/video/web/bottle-grasp.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/bottle-grasp.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1nZ4t6HEif/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 360 · 25 fps · 63.59 MB</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="teleoperation" aria-labelledby="teleop-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">02</span> TELEOPERATION</p>
+            <h2 id="teleop-title">手臂遥操作与示教采集</h2>
+            <p class="section-description">手势重定向与双臂 VR 遥操 · 配套采集工具支持三路 RGB-D 配置</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>VR Tracking</li><li>Retargeting</li><li>IK</li>
+          </ul>
+        </header>
+
+        <div class="video-grid teleop-grid">
+          <figure class="demo-card">
+            <div class="video-shell hand-teleop">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：灵巧手手势跟随" aria-describedby="hand-caption" aria-pressed="false">
+                <img id="hand-video" class="demo-gif" src="assets/img/web/gesture-following.webp" data-poster="assets/img/web/gesture-following.webp" data-gif="assets/img/gif/gesture-following.gif" alt="灵巧手手势跟随" width="640" height="426" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="hand-caption">
+              <div class="caption-heading"><h3>灵巧手手势跟随</h3><span class="duration" aria-label="时长 36 秒">00:36</span></div>
+              <p>基于手部关键点实时重定向，同屏展示仿真与真机响应。</p>
+              <p class="media-links"><a href="assets/video/web/gesture-following.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/gesture-following.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1cZ4t6HEjx/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 426 · 25 fps · 51.32 MB</p>
+            </figcaption>
+          </figure>
+
+          <figure class="demo-card">
+            <div class="video-shell arm-teleop">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：双臂 VR 遥操作" aria-describedby="arm-caption" aria-pressed="false">
+                <img id="arm-video" class="demo-gif" src="assets/img/web/arm-teleoperation.webp" data-poster="assets/img/web/arm-teleoperation.webp" data-gif="assets/img/gif/arm-teleoperation.gif" alt="双臂 VR 遥操作" width="560" height="448" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="arm-caption">
+              <div class="caption-heading"><h3>双臂 VR 遥操作</h3><span class="duration" aria-label="时长 52 秒">00:52</span></div>
+              <p>VR 提供目标位姿，经 IK 求解驱动双臂，结合插值与平滑复位。</p>
+              <p class="media-links"><a href="assets/video/web/arm-teleoperation.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/arm-teleoperation.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1cZ4t6HEh5/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 560 × 448 · 25 fps · 101.24 MB</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="eeg" aria-labelledby="eeg-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">03</span> BRAIN-COMPUTER INTERFACE</p>
+            <h2 id="eeg-title">脑电指令与机械臂抓取</h2>
+            <p class="section-description">SSVEP 指令识别 · 多源信号异步融合 · 真机抓取演示</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>SSVEP</li><li>异步融合</li><li>机械臂控制</li>
+          </ul>
+        </header>
+
+        <div class="eeg-layout">
+          <figure class="demo-card">
+            <div class="video-shell landscape">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：脑电指令控制机械臂抓取" aria-describedby="eeg-caption" aria-pressed="false">
+                <img id="eeg-video" class="demo-gif" src="assets/img/web/eeg-control.webp" data-poster="assets/img/web/eeg-control.webp" data-gif="assets/img/gif/eeg-control.gif" alt="脑电指令控制机械臂抓取" width="640" height="360" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="eeg-caption">
+              <div class="caption-heading"><h3>脑电指令控制机械臂</h3><span class="duration" aria-label="时长 1 分 7 秒">01:07</span></div>
+              <p>识别脑电模式并映射为控制指令，驱动机械臂完成目标抓取。</p>
+              <p class="media-links"><a href="assets/video/web/eeg-control.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/eeg-control.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1cZ4t6HEgQ/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 640 × 360 · 25 fps · 97.18 MB</p>
+            </figcaption>
+          </figure>
+
+          <div class="eeg-copy">
+
+            <h3>从脑电指令到关节执行</h3>
+            <ol class="implementation-steps">
+              <li>
+                <span class="step-number" aria-hidden="true">01</span>
+                <div><h4>真机数据采集与示教</h4><p>采集机器人状态与拖拽示教轨迹，为动作学习提供数据。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">02</span>
+                <div><h4>SSVEP 脑电控制方案</h4><p>解析视觉刺激对应的脑电模式，并映射为机器人控制指令。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">03</span>
+                <div><h4>异步融合与关节执行</h4><p>协调多源信号，将识别指令传递至关节控制，驱动机械臂抓取。</p></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="demo-section demo-section--compact" id="act" aria-labelledby="act-title">
+      <div class="container">
+        <header class="section-heading">
+          <div class="section-heading-copy">
+            <p class="eyebrow"><span class="section-number">04</span> IMITATION LEARNING</p>
+            <h2 id="act-title">真机示教与 ACT 筷子夹取</h2>
+            <p class="section-description">直接拖拽示教 · ACT 动作序列建模 · 筷子开合与夹取实录</p>
+          </div>
+          <ul class="tech-tags" aria-label="相关技术">
+            <li>ACT / CVAE</li><li>拖拽示教</li><li>时序集成</li>
+          </ul>
+        </header>
+
+        <div class="act-layout">
+          <div class="act-copy">
+
+            <h3>从拖拽示教到筷子操作</h3>
+            <ol class="implementation-steps">
+              <li>
+                <span class="step-number" aria-hidden="true">01</span>
+                <div><h4>70 条真机示教</h4><p>直接拖拽采集 7,224 原始帧，清洗后形成 5,076 个监督样本。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">02</span>
+                <div><h4>16 维状态 → 20 步动作</h4><p>以关节状态为输入，通过 ACT / CVAE 预测未来动作块，生成筷子操作轨迹。</p></div>
+              </li>
+              <li>
+                <span class="step-number" aria-hidden="true">03</span>
+                <div><h4>时序集成与增量限幅</h4><p>融合重叠动作预测并限制关节增量，平滑生成的执行轨迹。</p></div>
+              </li>
+            </ol>
+          </div>
+
+          <figure class="demo-card portrait-card">
+            <div class="video-shell portrait">
+              <button class="gif-toggle" type="button" aria-label="暂停动图：ACT 筷子夹取 · 真机实录" aria-describedby="act-caption" aria-pressed="false">
+                <img id="act-video" class="demo-gif" src="assets/img/web/chopsticks.webp" data-poster="assets/img/web/chopsticks.webp" data-gif="assets/img/gif/chopsticks.gif" alt="ACT 筷子夹取 · 真机实录" width="360" height="640" decoding="async">
+                <span class="gif-status" aria-live="polite">等待播放</span>
+              </button>
+            </div>
+            <figcaption class="video-caption" id="act-caption">
+              <div class="caption-heading"><h3>筷子夹取 · 真机实录</h3><span class="duration" aria-label="时长 11 秒">00:11</span></div>
+              <p>灵巧手持筷，执行精细开合与夹取。</p>
+              <p class="media-links"><a href="assets/video/web/chopsticks.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a><a href="assets/img/gif/chopsticks.gif" target="_blank" rel="noopener">打开 GIF ↗</a><a href="https://www.bilibili.com/video/BV1FZ4t6HEyu/" target="_blank" rel="noopener">B 站打开 ↗</a></p>
+              <p class="gif-details">GIF · 360 × 640 · 25 fps · 26.27 MB</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><p>李孟卓 <span aria-hidden="true">/</span> Robotics Demos</p><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div>
+  </footer>
+</body>
+</html>
