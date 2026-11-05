@@ -179,7 +179,7 @@ h2 { margin-top: 12px; font-size: clamp(26px, 2.8vw, 32px); font-weight: 700; le
   .review-banner { align-items: flex-start; flex-direction: column; }
   html { scroll-padding-top: 130px; }
   .container { width: calc(100% - 40px); }
-  .site-nav { display: grid; grid-template-columns: 1fr auto; gap: 0 16px; padding-top: 10px; }
+  .site-nav { display: grid; grid-template-columns: 1fr; gap: 0 16px; padding-top: 10px; }
   .brand { font-size: 11px; }
   .brand-light { display: inline; }
   .brand-mark { width: 25px; height: 25px; }

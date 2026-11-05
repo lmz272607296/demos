@@ -88,16 +88,17 @@ def build_page(results):
             '              </button>'
         )
         page = page[:match.start()] + player + page[match.end():]
-        # Replace the media links in this caption only; preserve the original Bilibili URL.
-        caption_pattern = rf'(<figcaption\b[^>]*id="{caption}"[\s\S]*?<p class="media-links">)([\s\S]*?)(</p>)'
+        # Add review-only links without depending on links in the main page.
+        caption_pattern = rf'(<figcaption\b[^>]*id="{caption}"[\s\S]*?)(\s*</figcaption>)'
         links = (
             f'<a href="assets/video/web/{name}.mp4" target="_blank" rel="noopener">原 MP4 对照 ↗</a>'
             f'<a href="{gif}" target="_blank" rel="noopener">打开 GIF ↗</a>'
         )
-        page, count = re.subn(caption_pattern, lambda m: m[1] + links + m[2] + m[3] + (
+        page, count = re.subn(caption_pattern, lambda m: m[1] + (
+            f'\n              <p class="media-links">{links}</p>'
             f'\n              <p class="gif-details">GIF · {item["width"]} × {item["height"]} · {FPS} fps · '
             f'{item["bytes"] / 1_000_000:.2f} MB</p>'
-        ), page, count=1)
+        ) + m[2], page, count=1)
         if count != 1:
             raise ValueError(f"Missing caption: {caption}")
     if "gif-preview.js" not in page or "<iframe" in page:

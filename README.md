@@ -35,14 +35,14 @@ Pages 设置：https://github.com/lmz272607296/demos/settings/pages
 
 在线审阅：https://lmz272607296.github.io/demos/email/gif.html 。测试首次加载时使用新的无痕会话，并分别尝试国内 Wi-Fi 和手机流量；完整加载后的循环流畅度不能代表首次访问的下载速度。
 
-- 编码为 25 fps、最多 256 色，宽度最高 640 像素；每段标注尺寸和体积，提供原 MP4、GIF 和 B 站链接以便比较。
+- 编码为 25 fps、最多 256 色，宽度最高 640 像素；每段标注尺寸和体积，提供原 MP4 和 GIF 链接以便比较。
 - 动图进入视野后自动循环，离开视野或切换标签页时恢复静态封面，减少同时解码。点击画面暂停到封面，再次点击从头播放；减少动态效果 / 节省流量模式默认显示封面。
 - 首轮 8 段 GIF 共约 452 MB，只适合先审阅效果，是否采用由审阅结果决定。B 站版本仍使用 `email/index.html`。
 - 重建：在 `email/` 运行 `python build_gif_preview.py`；依赖 `imageio-ffmpeg`。脚本按当前 `index.html` 同步生成 `gif.html`，动图输出到 `assets/img/gif/`；`--force` 可强制重新转码。
 
 ## 申请页的 B 站视频加载
 
-网页和简历由 GitHub Pages 提供，8 个演示均使用 B 站外链播放器。视频按页面从上到下、从左到右的顺序对应如下：
+网页由 GitHub Pages 提供，8 个演示均使用 B 站外链播放器。简历通过申请邮件附上，两个网页版本均不再显示简历入口或卡片中的“B 站打开”链接。视频按页面从上到下、从左到右的顺序对应如下：
 
 | 演示 | B 站 BV 号 |
 | --- | --- |
@@ -55,11 +55,10 @@ Pages 设置：https://github.com/lmz272607296/demos/settings/pages
 | 脑电指令控制机械臂 | `BV1cZ4t6HEgQ` |
 | 筷子夹取 · 真机实录 | `BV1FZ4t6HEyu` |
 
-- iframe 使用 HTTPS、响应式尺寸和 `loading="lazy"`，各卡片提供对应的 B 站原视频链接。
+- iframe 使用 HTTPS、响应式尺寸和 `loading="lazy"`。
 - 电脑端设置 `autoplay=false&muted=true&loop=false`，等待手动播放；手机端设置 `autoplay=true&muted=true&loop=true`，请求静音自动循环播放。两端均关闭弹幕、显示封面，使用 `true/false` 兼容 B 站移动播放器。
-- `showcase.js` 根据设备 UA 设置参数后才赋值 iframe 的 `src`，避免电脑端先自动播放再被修改参数。缩窄电脑窗口不会切换到自动播放。禁用 JavaScript 时，可使用卡片中的 B 站链接观看。
+- `showcase.js` 根据设备 UA 设置参数后才赋值 iframe 的 `src`，避免电脑端先自动播放再被修改参数。缩窄电脑窗口不会切换到自动播放。禁用 JavaScript 时显示启用提示。
 - 手机端自动播放仍受浏览器、低电量模式和 B 站实现影响。B 站桌面外链播放器忽略 `loop`，其控制栏无法由本站跨域隐藏。
 - 视频清晰度、平台提示、控制按钮及片尾行为由 B 站提供；站点的原生 MP4 控制脚本无法控制跨域 iframe 的播放状态。
-- 简历位于 `email/assets/resume.pdf`，更新时同步修改 HTML 中的 `?v=` 版本参数。
 
 MP4 和封面保留在 `email/assets/video/web/`、`email/assets/img/web/`，用于生成 GIF、原片对照和动图暂停时的封面；B 站版不会直接加载这些视频。`email/optimize_media.py` 记录源文件映射和 H.264 / MP4、30 fps、`faststart` 转码参数，需要本地安装 `imageio-ffmpeg` 后运行。使用 `--force` 重新生成，使用 `--posters` 生成封面。
